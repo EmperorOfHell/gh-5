@@ -6,13 +6,13 @@ jobs:
     strategy:
       matrix:
         node-version: [12, 14, 16]
-        operating-system: [ubuntu-latest, winddows-latest]
+        operating-system: [ubuntu-latest, windows-latest]
         include:
           - node-version: 18
             operating-system: ubuntu-latest
         exclude:
           - node-version: 12
-            operaring-system: winddows-latest
+            operating-system: windows-latest
     runs-on: ${{ matrix.operating-system }}
     steps:
       - name: Get code
@@ -23,5 +23,5 @@ jobs:
            node-version: ${{ matrix.node-version }}
       - name: Install Dependencies
         run: npm ci
-      - name: Build projevt
+      - name: Build project
         run: npm run build
